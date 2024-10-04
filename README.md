@@ -84,26 +84,6 @@ Adjust the path to `./config` as needed. Save the file and run:
 
     $ docker-compose up -d
 
-### Docker Compose
-
-To use Docker Compose, create a `docker-compose.yml` file with the following content:
-
-    
-    services:
-      kometa:
-        image: kometateam/kometa
-        container_name: kometa
-        volumes:
-          - /path/to/config:/config
-        environment:
-          - TZ=Europe/Madrid
-        restart: unless-stopped
-        
-
-Change the `/path/to/config` to your actual configuration path. Save and run:
-
-    $ docker-compose up -d
-
 Repository Location
 -------------------
 
