@@ -1,7 +1,7 @@
-Project Name
-============
+My Kometa (Plex Meta Manager) config
+====================================
 
-A brief description of your project.
+This project is focused on providing a minimalistic, refined design for displaying media collections, with an emphasis on visual clarity and an intuitive user experience. It integrates critic and audience ratings as overlays on media items, making it easy to compare public opinion and professional reviews. The rating overlays are combined to avoid clutter, creating a clean visual style while still providing valuable information at a glance.
 
 Table of Contents
 -----------------
@@ -17,7 +17,7 @@ Installation
 
 To install this project, follow the instructions below:
 
-    $ git clone https://github.com/yourusername/your-repo-name.git
+    $ git clone git@github.com:sperea/my_kometa_plex_meta_manager_config.git
     $ cd your-repo-name
     $ npm install
 
