@@ -1,0 +1,9 @@
+overlays:
+  gradient:
+    overlay:
+      name: gradient
+      file: config/overlays/images/gradient/gradient_bottom.png
+      priority: 1
+
+    # Definición única de `plex_all` para ambos overlays
+    plex_all: true

@@ -1,0 +1,7 @@
+overlays:
+  gradient:
+    overlay:
+      name: gradient
+      file: config/overlays/images/gradient/gradient_top.png
+      priority: 1
+    plex_all: true
