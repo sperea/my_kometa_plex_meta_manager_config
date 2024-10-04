@@ -20,37 +20,39 @@ There are two main ways to install Kometa:
 *   Running as a Python script on your system (referred to as a "local" install)
 *   Running as a Docker container
 
-\*\*Recommendation\*\*: Running as a Docker container is simpler because you don’t need to worry about installing Python or its dependencies. For most users, Docker is the preferred method unless you have a specific reason to avoid it.
+**Recommendation:** Running as a Docker container is simpler because you don’t need to worry about installing Python or its dependencies. For most users, Docker is the preferred method unless you have a specific reason to avoid it.
 
-### Folder Structure
+### Step 1: Clone the Repositories
 
-The complete configuration files for Kometa should be placed in a folder named `config`. All necessary files, such as `config.yml` and collections, should reside here.
+Before proceeding with the installation, you need to clone the Kometa repository and your custom configuration repository:
+
+1.  Clone the main Kometa repository:
+
+    $ git clone https://github.com/Kometa-Team/Kometa.git
+
+3.  Navigate to the Kometa folder:
+
+    $ cd Kometa
+
+5.  Clone your custom configuration repository into the `/config` folder:
+
+    $ git clone https://github.com/sperea/my_kometa_plex_meta_manager_config.git config
+
+This will ensure that the necessary configuration files are placed directly in the `/config` folder, which Kometa requires for proper setup.
 
 ### Docker Installation
 
-If you choose to install using Docker, follow these steps:
+Once the repositories are cloned, if you choose to install using Docker, follow these steps:
 
-    $ docker run -it -v "PATH_TO_CONFIG:/config:rw" kometateam/kometa
+    $ docker run -it -v "$(pwd)/config:/config:rw" kometateam/kometa
 
-Replace `PATH_TO_CONFIG` with the path to your `config` folder. The `-v` flag mounts the configuration folder so that your settings are persistent.
-
-Example command:
-
-    $ docker run -it -v "/home/user/kometa/config:/config:rw" kometateam/kometa
+This command mounts the `config` folder containing your custom configurations. Adjust the path if needed.
 
 ### Local Installation
 
 For those who prefer a local installation, Kometa requires Python 3.8 to 3.11. Follow these steps:
 
-1.  Clone the repository:
-
-    $ git clone https://github.com/Kometa-Team/Kometa
-
-3.  Navigate to the folder:
-
-    $ cd Kometa
-
-5.  Install dependencies:
+1.  Install the required dependencies:
 
     $ pip install -r requirements.txt
 
@@ -58,9 +60,29 @@ If you encounter errors, try:
 
     $ pip install -r requirements.txt --ignore-installed
 
-9.  Run Kometa to verify the installation:
+5.  Run Kometa to verify the installation:
 
     $ python kometa.py
+
+### Docker Compose
+
+If you prefer to use Docker Compose, create a `docker-compose.yml` file with the following content:
+
+    
+    services:
+      kometa:
+        image: kometateam/kometa
+        container_name: kometa
+        volumes:
+          - ./config:/config
+        environment:
+          - TZ=Europe/Berlin
+        restart: unless-stopped
+        
+
+Adjust the path to `./config` as needed. Save the file and run:
+
+    $ docker-compose up -d
 
 ### Docker Compose
 
