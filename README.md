@@ -1,5 +1,3 @@
-  README body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 800px; padding: 20px; } h1, h2, h3 { color: #333; } pre { background: #f4f4f4; border: 1px solid #ddd; padding: 10px; overflow: auto; } code { background: #f4f4f4; border: 1px solid #ddd; padding: 2px 4px; } a { color: #0366d6; text-decoration: none; } a:hover { text-decoration: underline; }
-
 Project Name
 ============
 
