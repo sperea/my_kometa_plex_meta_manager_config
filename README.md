@@ -15,22 +15,72 @@ Table of Contents
 Installation
 ------------
 
-To install this project, follow the instructions below:
+There are two main ways to install Kometa:
 
-    $ git clone git@github.com:sperea/my_kometa_plex_meta_manager_config.git
-    $ cd my_kometa_plex_meta_manager_config
-    $ npm install
+*   Running as a Python script on your system (referred to as a "local" install)
+*   Running as a Docker container
 
-Usage
------
+\*\*Recommendation\*\*: Running as a Docker container is simpler because you don’t need to worry about installing Python or its dependencies. For most users, Docker is the preferred method unless you have a specific reason to avoid it.
 
-Provide instructions and examples on how to use your project:
+### Folder Structure
 
-    $ npm start
+The complete configuration files for Kometa should be placed in a folder named `config`. All necessary files, such as `config.yml` and collections, should reside here.
 
-You can also run tests using:
+### Docker Installation
 
-    $ npm test
+If you choose to install using Docker, follow these steps:
+
+    $ docker run -it -v "PATH_TO_CONFIG:/config:rw" kometateam/kometa
+
+Replace `PATH_TO_CONFIG` with the path to your `config` folder. The `-v` flag mounts the configuration folder so that your settings are persistent.
+
+Example command:
+
+    $ docker run -it -v "/home/user/kometa/config:/config:rw" kometateam/kometa
+
+### Local Installation
+
+For those who prefer a local installation, Kometa requires Python 3.8 to 3.11. Follow these steps:
+
+1.  Clone the repository:
+
+    $ git clone https://github.com/Kometa-Team/Kometa
+
+3.  Navigate to the folder:
+
+    $ cd Kometa
+
+5.  Install dependencies:
+
+    $ pip install -r requirements.txt
+
+If you encounter errors, try:
+
+    $ pip install -r requirements.txt --ignore-installed
+
+9.  Run Kometa to verify the installation:
+
+    $ python kometa.py
+
+### Docker Compose
+
+To use Docker Compose, create a `docker-compose.yml` file with the following content:
+
+    
+    services:
+      kometa:
+        image: kometateam/kometa
+        container_name: kometa
+        volumes:
+          - /path/to/config:/config
+        environment:
+          - TZ=Europe/Berlin
+        restart: unless-stopped
+        
+
+Change the `/path/to/config` to your actual configuration path. Save and run:
+
+    $ docker-compose up -d
 
 Contributing
 ------------
