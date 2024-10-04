@@ -82,6 +82,31 @@ Change the `/path/to/config` to your actual configuration path. Save and run:
 
     $ docker-compose up -d
 
+Repository Location
+-------------------
+
+To ensure proper configuration and functionality, the contents of this repository should be placed inside the `/config` folder of Kometa. This is necessary because Kometa looks for all configuration files, such as `config.yml`, collections, and overlays, within this directory.
+
+For Docker users, mount the repository as the `/config` directory by using the following command:
+
+    $ docker run -it -v "path/to/this/repository:/config:rw" kometateam/kometa
+
+Make sure to replace `path/to/this/repository` with the actual path to the folder where you cloned this repository. This way, all configuration files will be properly detected by Kometa during execution.
+
+If you are using Docker Compose, modify the volume section to match your repository path:
+
+    
+    services:
+      kometa:
+        image: kometateam/kometa
+        container_name: kometa
+        volumes:
+          - /path/to/this/repository:/config
+        restart: unless-stopped
+        
+
+Once you have verified that the files are correctly placed in the `/config` folder, Kometa will be able to access and apply all the settings, overlays, and collections from this repository.
+
 Contributing
 ------------
 
