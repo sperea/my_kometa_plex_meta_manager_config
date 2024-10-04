@@ -18,7 +18,7 @@ Installation
 To install this project, follow the instructions below:
 
     $ git clone git@github.com:sperea/my_kometa_plex_meta_manager_config.git
-    $ cd your-repo-name
+    $ cd my_kometa_plex_meta_manager_config
     $ npm install
 
 Usage
