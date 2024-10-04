@@ -74,7 +74,7 @@ To use Docker Compose, create a `docker-compose.yml` file with the following con
         volumes:
           - /path/to/config:/config
         environment:
-          - TZ=Europe/Berlin
+          - TZ=Europe/Madrid
         restart: unless-stopped
         
 
