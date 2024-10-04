@@ -21,8 +21,6 @@ To install this project, follow the instructions below:
     $ cd your-repo-name
     $ npm install
 
-Replace `yourusername` and `your-repo-name` with your own GitHub username and repository name.
-
 Usage
 -----
 
