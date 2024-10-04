@@ -55,6 +55,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Contact
 -------
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Sergio Perea - [sperea.es](https://sperea.es)
 
-Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yourusername/your-repo-name)
+Project Link: [https://github.com/sperea/my_kometa_plex_meta_manager_config](https://github.com/sperea/my_kometa_plex_meta_manager_config)
