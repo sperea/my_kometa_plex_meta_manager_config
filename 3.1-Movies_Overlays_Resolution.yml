@@ -1,0 +1,87 @@
+# Adds the specific resolution overlay to all qualified animes
+
+templates:
+  1080P HD:
+    optional:
+      - overlay_level
+    default:
+      overlay: <<overlay_name>>
+    collection_level: <<overlay_level>>
+    overlay:
+      name: <<overlay_name>>
+      file_poster: config/overlays/1080P-DV.png
+
+  720P HD:
+    optional:
+      - overlay_level
+    default:
+      overlay: <<overlay_name>>
+    collection_level: <<overlay_level>>
+    overlay:
+      name: <<overlay_name>>
+      file_poster: config/overlays/720P.png
+
+  576P SD:
+    optional:
+      - overlay_level
+    default:
+      overlay: <<overlay_name>>
+    collection_level: <<overlay_level>>
+    overlay:
+      name: <<overlay_name>>
+      file_poster: config/overlays/576P.png
+
+  480P SD:
+    optional:
+      - overlay_level
+    default:
+      overlay: <<overlay_name>>
+    collection_level: <<overlay_level>>
+    overlay:
+      name: <<overlay_name>>
+      file_poster: config/overlays/480P.png
+
+
+overlays:
+
+  1080P:
+    template:
+      - name: 1080P HD
+    suppress_overlays:
+      - 720P
+      - 576P
+      - 480P
+      - 240P
+    plex_search:
+      all:
+        resolution.regex: "(?i)1080"
+
+  720P:
+    template:
+      - name: 720P HD
+    suppress_overlays:
+      - 576P
+      - 480P
+      - 240P
+    plex_search:
+      all:
+        resolution: 720p
+
+  576P:
+    template:
+      - name: 576P SD
+    suppress_overlays:
+      - 480P
+      - 240P
+    plex_search:
+      all:
+        resolution: 576p
+
+  480P:
+    template:
+      - name: 480P SD
+    plex_search:
+      all:
+        resolution: 480p
+
+

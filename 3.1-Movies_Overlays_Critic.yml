@@ -1,0 +1,47 @@
+templates:
+  Critic Overlay:
+    optional:
+      - overlay_level
+    default:
+      overlay: <<overlay_name>>
+    collection_level: <<overlay_level>>
+    overlay:
+      name: <<overlay_name>>
+      file_poster: config/overlays/Critic-Overlay.png
+
+
+  Critic Rating:
+    optional:
+      - overlay_level
+    default:
+      rating_type: critic_rating
+    collection_level: <<overlay_level>>
+    overlay:
+      name: text(<<rating_type>>)
+      weight: <<weight>>
+      font: fonts/Inter-Medium.ttf
+      font_size: 60
+      font_color: "#FFFFFF"
+      horizontal_offset: 50
+      horizontal_align: right
+      vertical_offset: 1422
+      vertical_align: top
+
+overlays:
+  Critic-Overlay:
+    template:
+      name: Critic Overlay
+      weight: 100
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 10
+
+  Critic-Rating:
+    template:
+      name: Critic Rating
+      weight: 100
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 10

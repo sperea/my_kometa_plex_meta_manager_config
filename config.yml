@@ -1,296 +1,187 @@
+# Change the library names below to your exact(!) plex library names.
 libraries:
-  # Definition of the "Movies" library settings
-  Movies:
-    reset_overlays: tmdb         # Overlays to reset based on TMDB
-    reapply_overlays: false      # Do not reapply overlays
-    remove_overlays: false       # Do not remove existing overlays
-    report_path: config/missing/missing_movies.yml  # Path to save missing movies report
-
-    # Collection settings for the library
+  Películas:
     collection_files:
-    - default: tmdb
-      template_variables:     
-        radarr_monitor_existing: true     # Enable monitoring of existing items in Radarr
-        radarr_add_missing: true          # Add missing items to Radarr
-        radarr_search: false              # Disable automatic search in Radarr
-        radarr_tag: kometa,tmdb           # Tags to apply in Radarr
-        collection_order: release         # Order collections by release date
-        minimum_items: 5                  # Minimum items to create a collection
-        use_popular: false                # Do not use popular items
-        use_top: false                    # Do not use top-rated items
-        use_trending: true                # Use trending items
-        limit_trending: 25                # Limit trending items to 25
-        visible_library: true             # Show collections in the library
-        visible_home: false               # Do not show collections on the home page
-        visible_shared: false             # Do not show collections on shared views
-        use_separator: false              # Do not use separators between collections
-
-    # Additional collection definitions using predefined templates
-    - default: bafta
-      template_variables:
-        visible_library: true
-        visible_home: false
-        visible_shared: false
-        data:
-          starting: latest-5
-          ending: latest
-        use_separator: false
-
-    - default: golden
-      template_variables:
-        visible_library: true
-        visible_home: false
-        visible_shared: false
-        data:
-          starting: latest-5
-          ending: latest
-        use_separator: false
-
-    - default: oscars
-      template_variables:
-        visible_library: true
-        visible_home: false
-        visible_shared: false
-        data:
-          starting: latest-5
-          ending: latest
-        use_separator: false
-
-    # Overlay settings for various aspects
-    overlay_files:
-    - file: config/overlays/gradient_movies_top.yml
-    - file: config/overlays/gradient_movies_bottom.yml
-    - default: resolution
-      template_variables:
-        file: config/overlays/resolution/<<key>><<alt>>.png
-        use_resolution: true
-        use_edition: false
-        horizontal_offset: 50
-        horizontal_align: left
-        vertical_offset: 50
-        vertical_align: bottom
-        back_radius: 0
-        back_align: left
-        back_color: '#00000000'
-        back_height: 50
-        use_720p: false
-        use_576p: false
-        use_480p: false
-
-    - default: audio_codec
-      template_variables:
-        file: config/overlays/audio_codec/<<key>>.png
-        horizontal_offset: 50
-        horizontal_align: right
-        vertical_offset: 50
-        vertical_align: bottom
-        back_radius: 0
-        back_align: right
-        back_color: '#00000000'
-        back_height: 50
-        use_pcm: false
-        use_flac: false
-        use_opus: false
-        use_mp3: false
-        use_aac: false
-
-    - default: resolution
-      template_variables:
-        file: config/overlays/edition/<<key>>.png
-        use_resolution: false
-        use_edition: true
-        horizontal_offset: 0
-        horizontal_align: center
-        vertical_offset: 40
-        vertical_align: top
-        back_radius: 0
-        back_color: '#00000000'
-        back_height: 153
-
-    - file: config/overlays/audience_rating.yml
-    - file: config/overlays/critic_rating.yml
-
+    - file: config/3-Movies.yml
+    - file: config/3-Movies_Awards.yml
+    - file: config/3-Movies_Franchises.yml
+    - file: config/3-Movies_Genres.yml
+    - file: config/3-Movies_Holidays
+    - file: config/3-Movies_People.yml
+    - file: config/3-Movies_Separators.yml
+    - file: config/3-Movies_Specials.yml
+    - file: config/3-Movies_Studios.yml
+    - file: config/3-Movies_Years.yml
     operations:
-      mass_critic_rating_update: mdb_metacritic
       mass_audience_rating_update: imdb
-      mass_user_rating_update: mdb_tomatoesaudience
-
-  # Definition of the "TV Shows" library settings
-  TV Shows:
-    reset_overlays: tmdb
-    reapply_overlays: true
-    remove_overlays: false
-    report_path: config/missing_series.yml
-
-    # Collection settings for TV Shows
-    collection_files:
-    - default: tmdb
-      template_variables:
-        use_popular: false
-        use_top: false
-        use_trending: true
-        limit_trending: 10
-        use_airing: false
-        use_air: true
-        limit_air: 10
-        visible_library: true
-        visible_home: false
-        visible_shared: false
-
-    - default: emmy
-      template_variables:
-        collection_order: release
-        data:
-          starting: latest-5
-          ending: latest
-
-    - default: pca
-      template_variables:
-        data:
-          starting: latest-5
-          ending: latest
-
+      mass_critic_rating_update: mdb_metacritic
     overlay_files:
-    - default: status
-      template_variables:
-        text_airing: airing
-        back_color_airing: '#A8E4A0'
-        text_returning: coming back
-        back_color_returning: '#A8E4A0'
-        text_canceled: cancelled
-        back_color_canceled: '#f85845'
-        text_ended: ended
-        back_color_ended: '#f85845'
-        font_color: '#000000FF'
-        font_size: 75
-        back_width:
-        back_height: 85
-        back_radius: 20
-        back_padding: 10
-        vertical_align: top
-        vertical_offset: 0
-        horizontal_align: left
-        horizontal_offset: 10
-
-    - default: network
-      template_variables:
-        horizontal_align: left
-        horizontal_offset: 20
-        vertical_offset: 0
-        vertical_align: center
-        weight: 10
-        style: color
-
-    - default: streaming
-      template_variables:
-        horizontal_align: left
-        horizontal_offset: 20
-        vertical_align: bottom
-        vertical_offset: 0
-        weight: 20
-
-    - default: ratings
-      template_variables:
-        horizontal_position: right
-        back_color: '#212122B3'
-        rating1: critic
-        rating1_image: rt_tomato
-        rating2: audience
-        rating2_image: rt_popcorn
-        rating3: user
-        rating3_image: mdb
-
+    - file: config/3.1-Movies_Overlays_4K.yml
+    - file: config/3.1-Movies_Overlays_Resolution.yml
+    - file: config/3.1-Movies_Overlays_Rating.yml
+    - file: config/3.1-Movies_Overlays_Critic.yml
+    - file: config/3.1-Movies_Audio.yml
+    - file: config/3.1-Movies_Overlays_Top.yml
+  Música:
+    collection_files:
+    - file: config/4-Music.yml
+    - file: config/4-Music_Genres.yml
+    - file: config/4-Music_Separators.yml
+  Series:
+    collection_files:
+    - file: config/7-TV.yml
+    - file: config/7-TV_Awards.yml
+    - file: config/7-TV_Franchises.yml
+    - file: config/7-TV_Genres.yml
+    - file: config/7-TV_Networks.yml
+    - file: config/7-TV_Separators.yml
+    - file: config/7-TV_Specials.yml
+    - file: config/7-TV_Years.yml
     operations:
-      mass_critic_rating_update: mdb_tomatoes
-      mass_audience_rating_update: mdb_tomatoesaudience
-
-# General settings for all libraries
+      mass_audience_rating_update: imdb
+    overlay_files:
+    - file: config/7.1-TV_Overlays_4K.yml
+    - file: config/7.1-TV_Overlays_Canceled.yml
+    - file: config/7.1-TV_Overlays_Rating.yml
+    - file: config/7.1-TV_Overlays_Top.yml
+  Videos:
+   collection_files:
+   - file: config/8-Videos.yml
+   overlay_files:
+   - file: config/8.1-Videos_Overlays_Category
 settings:
-  run_order:
-  - operations
-  - metadata
-  - collections
-  - overlays
-
   cache: true
   cache_expiration: 60
-
   asset_directory: config/assets
   asset_folders: true
-  asset_depth: 2
-  create_asset_folders: true
+  asset_depth: 0
+  create_asset_folders: false
   prioritize_assets: false
   dimensional_asset_rename: false
-  download_url_assets: true
-  show_missing_season_assets: true
-  show_missing_episode_assets: true
+  download_url_assets: false
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
   show_asset_not_needed: true
-
   sync_mode: append
-  default_collection_order: release
-  minimum_items: 3
+  minimum_items: 1
+  default_collection_order:
   delete_below_minimum: true
   delete_not_scheduled: false
-  run_again_delay: 120
-
-  missing_only_released: true
+  run_again_delay: 2
+  missing_only_released: false
   only_filter_missing: false
-
   show_unmanaged: true
   show_unconfigured: true
   show_filtered: false
-  show_options: true
+  show_options: false
   show_missing: true
   show_missing_assets: true
-  save_report: true
-
-  tvdb_language: es
+  save_report: false
+  tvdb_language: spa
   ignore_ids:
   ignore_imdb_ids:
-
   item_refresh_delay: 0
-  playlist_sync_to_users: all
+  playlist_sync_to_user: all
   playlist_exclude_users:
   playlist_report: false
-  verify_ssl: false
+  verify_ssl: true
+  custom_repo:
+  check_nightly: false
+  run_order:
+  - operations
+  - metadata
+  - overlays
+  - collections
   overlay_artwork_filetype: jpg
-  overlay_artwork_quality: 75
-
-  webhooks:
-    error:
-    version:
-    run_start:
-    run_end:
-    changes:
-
-  plex:
-    url: http://192.168.1.12:32400
-    token: ####################
-    timeout: 60
-    db_cache:
-    clean_bundles: false
-    empty_trash: false
-    optimize: false
-    verify_ssl:
-
-  tmdb:
-    apikey: ################################
-    language: en
-
-  tautulli:
-    url: http://192.168.1.12:8181
-    apikey: ################################
-
-  github:
-    token: ################################
-
-  omdb:
-    apikey: ########
-    cache_expiration: 60
-
-  mdblist:
-    apikey: #########################
-    cache_expiration: 60
-
-  notifiarr:
-    apikey: ####################################
+  overlay_artwork_quality: 90
+webhooks:                            # Can be individually specified per library as well
+  error:
+  version:
+  run_start:
+  run_end:
+  changes:
+plex:                                # Can be individually specified per library as well; REQUIRED for the script to run
+  url: http://192.168.1.XXX:32400
+  token: ####################
+  timeout: 60
+  db_cache:
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+  verify_ssl:
+tmdb:                                # REQUIRED for the script to run
+  apikey: ################################
+  language: en
+tautulli:                            # Can be individually specified per library as well
+  url: http://192.168.1.XXX:8181
+  apikey: ################################
+github:
+  token: ################################
+omdb:
+  apikey: ########
+  cache_expiration: 60
+mdblist:
+  apikey: #########################
+  cache_expiration: 60
+notifiarr:
+  apikey: ####################################
+gotify:
+  url: http://192.168.1.XXX:80
+  token: ####################################
+anidb:                               # Not required for AniDB builders unless you want mature content
+  username: ######
+  password: ######
+radarr:                              # Can be individually specified per library as well
+  url: http://192.168.1.XXX:7878
+  token: ################################
+  add_missing: false
+  add_existing: false
+  upgrade_existing: false
+  monitor_existing: false
+  root_folder_path: "/Movies"
+  monitor: true
+  availability: announced
+  quality_profile: HD-1080p
+  tag:
+  search: false
+  radarr_path:
+  plex_path:
+sonarr:                              # Can be individually specified per library as well
+  url: http://192.168.1.XXX:8989
+  token: ################################
+  add_missing: false
+  add_existing: false
+  upgrade_existing: false
+  monitor_existing: false
+  root_folder_path: "/TV Shows"
+  monitor: all
+  quality_profile: HD-1080p
+  language_profile: Spanish
+  series_type: standard
+  season_folder: true
+  tag:
+  search: false
+  cutoff_search: false
+  sonarr_path:
+  plex_path:
+trakt:
+  client_id: ####################
+  client_secret: ####################
+  pin:
+  authorization:
+    # everything below is autofilled by the script
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:
+    scope: public
+    created_at:
+mal:
+  client_id: ####################
+  client_secret: ####################
+  authorization:
+    # everything below is autofilled by the script
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:

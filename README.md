@@ -109,6 +109,199 @@ If you are using Docker Compose, modify the volume section to match your reposit
 
 Once you have verified that the files are correctly placed in the `/config` folder, Kometa will be able to access and apply all the settings, overlays, and collections from this repository.
 
+# PMM Configuration
+
+PMM offers great flexibility to customize and manage your collections and overlays. Below is a detailed guide to configure and organize your media libraries.
+
+---
+
+## Managing Collections and Overlays
+
+You can remove unwanted collections or overlays by deleting the respective file path in your config file or removing them directly from each `.yml` file. While collections can be adjusted to your preference, it is recommended to avoid making changes unless you are knowledgeable, as PMM is sensitive to modifications.
+
+---
+
+### Meaning of Star Icons
+
+The star icons next to the rating overlay on posters indicate ratings from popular services such as IMDb or Trakt. Below is the meaning of each color:
+
+- **Yellow Star**: IMDb Top 250  
+- **Red Star**: Trakt Top Rated  
+- **Green Star**: Letterboxd Top 250  
+- **Turquoise Star**: TMDb Top Rated  
+- **Blue Star**: MyAnimeList Top Rated  
+- **Grey Star**: AniDB Top Rated  
+
+---
+
+## Collection Categories
+
+Collections are dynamically created for each library and displayed on your home screen. They serve various purposes, such as movie series, trending content, top-rated items, genres, and more.
+
+### Anime
+
+- Charts
+- Specials
+- Resolutions
+- Streaming
+- User-specific
+- Genres and Subgenres
+- Franchises
+- Years and Decades
+- Awards
+- Studios
+- Separators
+- Ratings
+
+### Audiobooks
+
+- Genres
+
+### Movies
+
+- Charts
+- Specials
+- Resolutions
+- Streaming
+- User-specific
+- Genres and Subgenres
+- Franchises
+- Years and Decades
+- Awards
+- Studios
+- Actors
+- Directors
+- Authors
+- Separators
+
+### Music
+
+- Popular Music
+
+### Remux
+
+- Unwatched
+
+### Soundtracks
+
+- Charts
+- Genres
+- Separators
+
+### TV Shows
+
+- Charts
+- Specials
+- Resolutions
+- Streaming
+- User-specific
+- Genres and Subgenres
+- Franchises
+- Years and Decades
+- Awards
+- Studios
+- Separators
+- Ratings
+
+### Videos
+
+- TV Intros
+- Anime Openings
+- Anime Endings
+- CSS Edits
+- CSGO Edits
+- Live Concerts
+
+---
+
+## Operations Categories
+
+Operations ensure that the ratings for each item are accurate across the entire library. Preferences include IMDb for movies and TV shows and MyAnimeList for animes.
+
+### Anime
+
+- Mass MyAnimeList ratings update
+
+### Movies
+
+- Mass IMDb ratings update
+
+### Remux
+
+- Mass IMDb ratings update
+
+### TV Shows
+
+- Mass IMDb ratings update
+
+---
+
+## Overlay Categories
+
+Overlays are designed to enhance the user interface by providing useful information at a glance. The emphasis is on a clean look without overloading the UI.
+
+### Anime
+
+- MyAnimeList Ratings
+- Resolutions
+- Star Symbols for MyAnimeList and AniDB
+- Explicit Content
+
+### Movies
+
+- IMDb Ratings
+- Star Symbols for IMDb, Trakt, Letterboxd, TMDb, and MyAnimeList
+- Resolutions
+- No Swedish Subtitles (if enabled)
+
+### Remux
+
+- IMDb Ratings
+- Star Symbols for services
+- Resolutions
+- Audio Codecs
+
+### TV Shows
+
+- IMDb Ratings
+- Star Symbols for IMDb, Trakt, and TMDb
+- Resolutions
+- Canceled Shows
+
+### Videos
+
+- TV Category
+- Anime Opening Category
+- Anime Ending Category
+- CSS Category
+- CSGO Category
+- Concerts Category
+
+---
+
+## Collection Examples
+
+### Audiobooks
+![Audiobook Example](https://i.imgur.com/paYKsAV.png)
+
+### Music
+![Music Example](https://i.imgur.com/Cr3DSsZ.png)
+
+---
+
+## Overlay Examples
+
+### Anime
+![Anime Overlay Example](https://i.imgur.com/FmzDHkO.png)
+
+### Movies
+![Movies Overlay Example](https://i.imgur.com/xcq8HqX.png)
+
+---
+
+This document serves as a detailed guide for configuring and customizing PMM, ensuring a well-organized and visually appealing environment for your libraries.
+
+
 Contributing
 ------------
 
